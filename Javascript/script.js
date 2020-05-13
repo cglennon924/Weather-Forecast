@@ -1,10 +1,51 @@
 $(document).ready(function(){
 
+    var apiKey = "e6fa0c5b42fe538073be8986ef03ec51";
+    var cityID = ""
+    // Created an Empty Array for Favorite Cities
+    var favArray = [];
+    // Set todays date for Current Weather 
+    var todaysDate = moment().format("LLLL");
+    $("#todaysDate").text(todaysDate);
 
 
-var queryURL= "api.openweathermap.org/data/2.5/forecast?id" + city ID + "&appid = e6fa0c5b42fe538073be8986ef03ec51";
 
+  //var queryURL= "https://api.openweathermap.org/data/2.5/forecast?id" + cityID + "&appid=" + apiKey;
 
+  //Creating a button
+    $('.button').on("Click", function(){
+        var citySearch = JSON.parse(localStorage.getItem("searchCities"))
+        $('#Fav-City').empty()
 
+        if(citySearch === null){
+        return
+        }else{
+            citySearch.forEach(function(City, Index){
+            var buttonInfo = $("<input>").attr({
+                type: "button",
+                value: city,
+                idenfifier: index,
+                class: "row col-md-10 city-btn btn btn-dark"
+            })
+        })
+    
+    
+    
+    }) 
+    
+    //5 Day Weather Forecast
 
-})
+    function fiveDay(){
+        var forecast = $('#fiveDayForecast')
+
+    }
+    //Current Weather
+    function currentWeather(){
+
+    }
+    //UV Index
+    function uvIndex(){
+        
+    }
+
+}
