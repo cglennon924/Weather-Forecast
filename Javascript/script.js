@@ -37,15 +37,21 @@ $(document).ready(function(){
 
     function fiveDay(){
         var forecast = $('#fiveDayForecast')
-
+        var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + apiKey;
     }
     //Current Weather
     function currentWeather(){
-
+     var queryURL="https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + apiKey;
     }
     //UV Index
     function uvIndex(){
-        
+    var uvQueryURL="https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
+
+    }
+
+    function renderCity(){
+    var queryURL
+
     }
 
 }
