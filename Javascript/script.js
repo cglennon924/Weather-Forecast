@@ -7,12 +7,11 @@ $(document).ready(function(){
     // Set todays date for Current Weather 
     var todaysDate = moment().format("LLLL");
     $("#todaysDate").text(todaysDate);
-    //Sets Global temp to F
-    var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+   
 
 
 
-  var queryURL= "https://api.openweathermap.org/data/2.5/forecast?id" + cityID + "&appid=" + apiKey;
+  var queryURL= "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + apiKey;
     
   //Creating a button
     $('.button').on("Click", function(){
@@ -35,6 +34,11 @@ $(document).ready(function(){
     
     
     } 
+    // Submit button//
+    $('form').on("submit", function(event){
+        event.preventDefault();
+
+    });
     
     //5 Day Weather Forecast
 
@@ -64,7 +68,7 @@ $(document).ready(function(){
 
         // Log the resulting object
         console.log(response);
-          // add temp content to html
+        // add temp content to html
         $("#temp").text("Temperature (K) " + response.main.temp);
        
 
@@ -95,7 +99,16 @@ $(document).ready(function(){
         url: currentQueryURL,
         method: "GET"
         }).then(function(response){
-
+            var tempNow = ("Current Tempreture: " + ((responseCF.main.temp - 273.15) *1.8 + 32).toPrecision(2)) + "F";
+            $("#tempToday").text(tempFaren);
+            $("#humidityToday").text("Current Humidity: " + responseCF.main.humidity + "%");
+            $("#windToday").text("Current Wind Speed: " + responseCF.wind.speed + "mph");
+            var lon = responseCF.coord.lon;
+            var lat = responseCF.coord.lat;
+            var cityID = responseCF.id
+            console.log(cityID)
+            console.log(lat)
+            console.log(lon)
         })
     
 
@@ -122,7 +135,7 @@ $(document).ready(function(){
     
     
     
-        //UV Index
+    //UV Index
     function uvIndex(){
     var uvQueryURL="https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
     
@@ -133,9 +146,9 @@ $(document).ready(function(){
 
         })
     
-        ();
+        
         };
 
-   
+     
 
 })
