@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var apiKey = "84df96cacf76f88f4e4f11dea85bf159";
-    var location = "";
+    var location = "charlotte";
     // Created an Empty Array for Favorite Cities
     var favArray = [];
     // Set todays date for Current Weather 
@@ -54,6 +54,8 @@ $(document).ready(function () {
                 $("#temp").text(tempNow);
                 $("#humidity").text("Current Humidity: " + responseCW.main.humidity + "%");
                 $("#wind").text("Current Wind Speed: " + responseCW.wind.speed + "mph");
+                var currentLook = $("<img>").attr("src", "https://openweathermap.org/img/w/" + responseCW.weather[0].icon + ".png");
+                $("#weatherIcon").append(currentLook);
                 var lon = responseCW.coord.lon;
                 var lat = responseCW.coord.lat;
                 var cityID = responseCW.id

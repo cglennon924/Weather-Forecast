@@ -6,10 +6,13 @@
 .card{
     float: right;
     background-color: lightgreen;
+    
 }
 
 html{
     background-color: honeydew;
+    background-repeat: repeat-y, repeat-x;
+    background-size: contain;
 }
 
 .navbar {
