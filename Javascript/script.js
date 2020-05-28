@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var apiKey = "84df96cacf76f88f4e4f11dea85bf159";
-    var location = "charlotte"
+    var location = "";
     // Created an Empty Array for Favorite Cities
     var favArray = [];
     // Set todays date for Current Weather 
@@ -91,9 +91,22 @@ $(document).ready(function () {
         $.ajax({
             url: uvQueryURL,
             method: "GET"
-        }).then(function (response) {
+        }).then(function(responseHeat) {
+            console.log(responseHeat);
+            $("#uv").text("UV Index: ")
+            uvValue = $("<span>").text(responseHeat.value)
+            $("#uv").append(uvValue)
+            if (responseHeat.value <= 3) {
+            uvValue.attr("style", "background-color: white;")
+            } else if (responseHeat.value > 3 && responseHeat.value <= 6) {
+            uvValue.attr("style", "background-color: yellow;")
+            }else if (responseHeat.value > 6 && responseHeat.value <= 9) {
+            uvValue.attr("style", "background-color: orange;")
+            } else{
+            uvValue.attr("style", "background-color: red;")
+            };
+        });
 
-        })
 
 
     };

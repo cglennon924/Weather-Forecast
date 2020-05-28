@@ -1,8 +1,17 @@
 .body {
     font-size: medium;
+    
 }
 
 .card{
     float: right;
+    background-color: lightgreen;
 }
 
+html{
+    background-color: honeydew;
+}
+
+.navbar {
+    background-color: khaki;
+}
