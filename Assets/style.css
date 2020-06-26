@@ -1,17 +1,11 @@
-html{
-    background-color: silver;
-    background-size: contain;
-  
-}
-
 .navbar{
-    background-color: mediumblue;
+    font-family: 'Anton', sans-serif;
 }
-
+ 
 .card {
     width: 100%;
     background-color: lightskyblue;
-    
+    font-family: 'Anton', sans-serif;
 }
 
 ul {
@@ -24,7 +18,7 @@ li {
 
 .forecast-card {
     background-color: lightyellow;
-    
+    font-family: 'Anton', sans-serif;
 }
 
 .city-btn {
@@ -36,7 +30,7 @@ li {
 
 .card-margin {
     margin-top: 1rem;
-
+    font-family: 'Anton', sans-serif;
 }
 
 .col-5-day {
