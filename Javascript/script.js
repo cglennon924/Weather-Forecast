@@ -145,6 +145,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response)
+          
             for (var i = 5; i <= 40; i += 8) {
                 var futureDates = moment(response.list[i].dt_txt).format("MM/DD/YYYY");;
                 console.log(futureDates)
@@ -173,14 +174,10 @@ $(document).ready(function () {
                 console.log(response);
                 $("#forecastCities").append(cardDiv);
 
-
-
-                // Log the data in the console as well
-                //console.log("Wind Speed: " + response.wind.speed);
-                //console.log("Humidity: " + response.main.humidity);
-                //console.log("UV: " + response.main.uv)
-
-                //  Transfer content to HTML
+                
+                
+                    //  Transfer content to HTML
+            
                     $("#city").html("<h1>" + response.name + " Weather Details</h1>");
                     $("#wind").text("Wind Speed: " + response.wind.speed);
                     $("#humidity").text("Humidity: " + response.main.humidity);
