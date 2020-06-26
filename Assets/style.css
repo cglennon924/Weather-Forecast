@@ -2,10 +2,13 @@
     font-family: 'Anton', sans-serif;
 }
  
+
+
 .card {
     width: 100%;
     background-color: lightskyblue;
     font-family: 'Anton', sans-serif;
+    font-size: medium;
 }
 
 ul {
@@ -13,12 +16,13 @@ ul {
 }
 
 li {
-    font-size: 8pt;
+    font-size: 12pt;
 }
 
 .forecast-card {
     background-color: lightyellow;
     font-family: 'Anton', sans-serif;
+    font-size: large;
 }
 
 .city-btn {
