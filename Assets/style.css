@@ -4,17 +4,34 @@
 }
 
 .card{
-    float: right;
+    float: inline-start;
     background-color: lightgreen;
+    flex-flow: column wrap;
+    display: flex;
+    width: 40%;
     
 }
 
+
+
 html{
-    background-color: honeydew;
+    
     background-repeat: repeat-y, repeat-x;
     background-size: contain;
 }
 
 .navbar {
     background-color: khaki;
+}
+
+.forecast{
+    display: flex; flex-direction: row;
+    width: 60%;
+    
+}
+
+.container{
+    display: flex; flex-direction: column;
+
+    
 }

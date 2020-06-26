@@ -45,18 +45,19 @@ $(document).ready(function () {
 
         //Current Weather
         function currentWeather() {
+            event.preventDefault()
             var currentQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + apiKey;
             console.log(currentQueryURL)
             $.ajax({
                 url: currentQueryURL,
                 method: "GET"
             }).then(function (responseCW) {
-                var tempNow = ("Current Tempreture: " + ((responseCW.main.temp - 273.15) * 1.8 + 32).toPrecision(2)) + "F";
+                var tempNow = ("Current Temperature: " + ((responseCW.main.temp - 273.15) * 1.8 + 32).toPrecision(2)) + "F";
                 $("#temp").text(tempNow);
                 $("#humidity").text("Current Humidity: " + responseCW.main.humidity + "%");
                 $("#wind").text("Current Wind Speed: " + responseCW.wind.speed + "mph");
                 var currentLook = $("<img>").attr("src", "https://openweathermap.org/img/w/" + responseCW.weather[0].icon + ".png");
-                $("#weatherIcon").append(currentLook);
+                $("#weatherIcon").empty().append(currentLook);
                 var lon = responseCW.coord.lon;
                 var lat = responseCW.coord.lat;
                 var cityID = responseCW.id
@@ -134,9 +135,9 @@ $(document).ready(function () {
                 cardBody = $('<div class="card-body">');
                 cardBody.addClass("forecast-card");
                 cardTitle = $('<h5 class="card-title">').text(futureDates);
-                cardP1= $('<p class="card-text">').text(response.list[i].main.temp);
-                cardP2= $('<p class="card-text">').text(response.list[i].main.temp);
-                cardP3= $('<p class="card-text">').text(response.list[i].main.temp);
+                cardP1= $('<p class="card-text">').text(response.list[i].max.temp);
+                cardP2= $('<p class="card-text">').text(response.list[i].min.temp);
+                cardP3= $('<p class="card-text">').text(response.list[i].humidity.temp);
                 cardBody.append(cardTitle);
                 cardBody.append(cardP1);
                 cardBody.append(cardP2);
@@ -144,14 +145,7 @@ $(document).ready(function () {
                 cardDiv.append(cardImage);
                 cardDiv.append(cardBody);
                 
-                //                 <div class="card" style="width: 18rem;">
-                //   <img class="card-img-top" src="..." alt="Card image cap">
-                //   <div class="card-body">
-                //     <h5 class="card-title">Card title</h5>
-                //     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                //     <a href="#" class="btn btn-primary">Go somewhere</a>
-                //   </div>
-                // </div>
+               
                 // Log the queryURL
                 console.log(queryURL);
 
