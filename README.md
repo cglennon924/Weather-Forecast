@@ -25,6 +25,7 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
-
+## Demo Picture
+![image](https://user-images.githubusercontent.com/63322716/85867700-468fdf00-b797-11ea-851f-2da6ffc0f702.png)
 
 
