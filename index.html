@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Christopher's Weather Forecast</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="Assets/style.css">
+    <title>Forecast</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
-
 <body>
-    <nav class="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <span class='navbar-brand mx-auto h1'>Weather Dashboard </span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" class="navbar">
+        <span class='navbar-brand mx-auto h1'>Weather Search</span>
     </nav>
+
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-
-                <nav class="navbar navbar-light bg-light">
-
-                    <input class="form-control mr-sm-2" id="search" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for a City</button>
-
-                </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div class="card-margin card">
-                <div style="float: left">
+                <div class="card-margin card">
                     <div class="card-body">
-                        <h1 class="card-title" id="city"></h1>
-                        <p1 id="todaysDate"></p1>
-                        <ul>
-                            <li id="weatherIcon"></li>
-                            <li class="card-text" id="temp"></li>
-                            <li class="card-text" id="humidity"></li>
-                            <li class="card-text" id="wind"></li>
-                            <li class="card-text" id="uv"></li>
-                        </ul>
+                        <label>Search for a City:</label>
+                        <div class="input-group mb3">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Charlotte">
+                                <div class=input-group-append>
+                                
+                                        <button type="button" id="searchBtn" class="btn btn-outline-danger">Search</button>
+                                    
+                                </div>
+                        </div>
+                    <div id="citySearch"></div>
+                    </div>   
+                </div>             
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="card-margin card">
+                        <div class="card-body">
+                            <h1 class="card-title" id="cityReturn"></h1>
+                            <p1 id="todaysDate"></p1>
+                            <ul>
+                                <li id="weatherIcon"></li>
+                                <li class="card-text" id="tempToday"></li>
+                                <li class="card-text" id="humidityToday"></li>
+                                <li class="card-text" id="windToday"></li>
+                                <li class="card-text" id="uvToday"></li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
+                <div class="card-margin row">
+                    <h2>Five Day Forecast</h2>
+                </div>
+                <div class="row" id="forecastCities"></div>
                 </div>
             </div>
         </div>
-        <div class="card-margin row">
-            <div class="forecast" id="forecastCities">
-                <h2>Five Day Forecast</h2>
-            </div>
-        </div>
-    </div>
-
-    <div ID="Fav-City"></div>
-
-    </div>
+    </div>      
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.3/moment.js"></script>
-    <script src="./Javascript/script.js" type="text/javascript"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js' integrity='sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=' crossorigin='anonymous'></script>
+    <script src="Javascript/script.js" type="text/javascript"></script>
 </body>
-
 </html>

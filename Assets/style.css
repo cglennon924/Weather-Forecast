@@ -1,37 +1,46 @@
-.body {
-    font-size: medium;
-    
-}
-
-.card{
-    float: inline-start;
-    background-color: lightgreen;
-    flex-flow: column wrap;
-    display: flex;
-    width: 40%;
-    
-}
-
-
-
 html{
-    
-    background-repeat: repeat-y, repeat-x;
+    background-color: silver;
     background-size: contain;
+  
 }
 
-.navbar {
-    background-color: khaki;
+.navbar{
+    background-color: mediumblue;
 }
 
-.forecast{
-    display: flex; flex-direction: row;
-    width: 60%;
+.card {
+    width: 100%;
+    background-color: lightskyblue;
     
 }
 
-.container{
-    display: flex; flex-direction: column;
+ul {
+    list-style-type: none;
+}
 
+li {
+    font-size: 8pt;
+}
+
+.forecast-card {
+    background-color: lightyellow;
     
+}
+
+.city-btn {
+    margin-top: 0.3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.card-margin {
+    margin-top: 1rem;
+
+}
+
+.col-5-day {
+    padding: 0px;
+    margin-top: 1rem!important;
+    border-radius: 0.5rem;
 }
