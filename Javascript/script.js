@@ -56,7 +56,7 @@ $(document).ready(function () {
                 $("#humidity").text("Current Humidity: " + responseCW.main.humidity + "%");
                 $("#wind").text("Current Wind Speed: " + responseCW.wind.speed + "mph");
                 var currentLook = $("<img>").attr("src", "https://openweathermap.org/img/w/" + responseCW.weather[0].icon + ".png");
-                $("#weatherIcon").append(currentLook);
+                $("#weatherIcon").empty().append(currentLook);
                 var lon = responseCW.coord.lon;
                 var lat = responseCW.coord.lat;
                 var cityID = responseCW.id
