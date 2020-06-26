@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var apiKey = "84df96cacf76f88f4e4f11dea85bf159";
-    var location = "charlotte";
+    var location = "";
     // Created an Empty Array for Favorite Cities
     var favArray = [];
     // Set todays date for Current Weather 
@@ -11,7 +11,25 @@ $(document).ready(function () {
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + location + "&appid=" + apiKey;
 
 
-   
+   // Function to retrieve search cities from local Storage and creates an button for them
+   function createBtn () {
+    var renderFavCity = JSON.parse(localStorage.getItem("searchCities"));
+    $("#favCities").empty()
+    // If statement that prevents null values from being created as buttons
+    if (renderFavCity === null) {
+    return
+    }else {
+    renderFavCity.forEach(function (city, index) {
+    var buttonInfo = $("<input>").attr({
+        type: "button",
+        value: city,
+        idenfifier: index,
+        class: "row col-md-10 city-btn btn btn-dark"
+    })
+    $("#favCities").append(buttonInfo);
+    })
+    }             
+};
 
     //Creating a button
     $('.btn').on("click", function (event) {
@@ -117,10 +135,10 @@ $(document).ready(function () {
 
 
     function fiveDay() {
-        var forecast = $('#fiveDayForecast')
+        var forecast = $('#forecastCities');
         var forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=" + apiKey;
      
-        $('#fiveDayForecast').empty()
+        $('#forecastCities').empty()
         console.log(forecastQueryURL)
         $.ajax({
             url: forecastQueryURL,
@@ -135,9 +153,11 @@ $(document).ready(function () {
                 cardBody = $('<div class="card-body">');
                 cardBody.addClass("forecast-card");
                 cardTitle = $('<h5 class="card-title">').text(futureDates);
-                cardP1= $('<p class="card-text">').text(response.list[i].max.temp);
-                cardP2= $('<p class="card-text">').text(response.list[i].min.temp);
-                cardP3= $('<p class="card-text">').text(response.list[i].humidity.temp);
+                cardP1= $('<p class="card-text">').text(response.list[i].main.temp);
+                cardP2= $('<p class="card-text">').text(response.list[i].humidity.temp);
+                cardP3= $('<p class="card-text">').text(response.list[i].wind.temp);
+                cardP4= $('<p class="card-text">').text(response.list[i].uv.temp);
+                
                 cardBody.append(cardTitle);
                 cardBody.append(cardP1);
                 cardBody.append(cardP2);
@@ -151,7 +171,7 @@ $(document).ready(function () {
 
                 // Log the resulting object
                 console.log(response);
-                $("#forecastCities").append(cardDiv)
+                $("#forecastCities").append(cardDiv);
 
 
 
@@ -160,11 +180,11 @@ $(document).ready(function () {
                 //console.log("Humidity: " + response.main.humidity);
                 //console.log("UV: " + response.main.uv)
 
-                // Transfer content to HTML
-                //     $("#city").html("<h1>" + response.name + " Weather Details</h1>");
-                //     $("#wind").text("Wind Speed: " + response.wind.speed);
-                //     $("#humidity").text("Humidity: " + response.main.humidity);
-                //     $("#uv").text("UV: " + response.main.uv)
+                //  Transfer content to HTML
+                    $("#city").html("<h1>" + response.name + " Weather Details</h1>");
+                    $("#wind").text("Wind Speed: " + response.wind.speed);
+                    $("#humidity").text("Humidity: " + response.main.humidity);
+                    $("#uv").text("UV: " + response.main.uv)
             }
 
         })
