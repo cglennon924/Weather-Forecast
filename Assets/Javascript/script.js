@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // API Key Retrieved from Creating Account for Open Weather
     var apiKey = "84df96cacf76f88f4e4f11dea85bf159";
-    var location = ""
+    var location = "";
     // Created an Empty Array for Favorite Cities
     var favArray = [];
     // Set todays date for Current Weather 
@@ -31,7 +31,7 @@ $(document).ready(function(){
     // On click function that takes the value of the button selected and searches for its weather output. 
     $(document).on("click", "input", function () {                                      
 
-        var location = $(this).attr("value")                           
+        var location = $(this).val()                           
         console.log(location)                     
         $("#forecastCities").empty();                
         $("#weatherIcon").empty()                        
